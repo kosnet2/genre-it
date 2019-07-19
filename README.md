@@ -35,5 +35,6 @@ The mobile app that recognizes music genres using Deep Learning.
 
 ## Acknowledgments
 
-* Kudos to anyone whose code and ideas were 
+* Kudos to [hackcyprus](http://comeback.hackcyprus.com/) for organizing the event
+* Kudos to anyone whose code and ideas were used in our project
 * Kudos to all the open source community for allowing us achieve the impossible
