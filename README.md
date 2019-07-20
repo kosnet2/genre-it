@@ -7,7 +7,11 @@ The mobile app that recognizes music genres using Deep Learning
 
 ### Prerequisites
 
+* [Python 3.4+](https://www.python.org/)
+
 ### Installing
+
+* `pip install -r requirements.txt`
 
 ## Built with
 
