@@ -3,8 +3,6 @@
 # ![](resources/favicon.png) Genre-It
 The mobile app that recognizes music genres using Deep Learning
 
-![](resources/genre-it-text-and-logo.png)
-
 ## Getting Started
 
 ### Prerequisites
@@ -33,4 +31,4 @@ The mobile app that recognizes music genres using Deep Learning
 
 * Kudos to [Hack{Cyprus}](http://comeback.hackcyprus.com/) for organizing the event.
 * Kudos to anyone whose code and ideas were used in our project.
-* Kudos to all the open source community for allowing us achieve the impossible
+* Kudos to all the open source community for allowing us achieve the impossible.
