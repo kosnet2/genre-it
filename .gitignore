@@ -1,2 +1,12 @@
 #ignore the dataset
 fma_small/
+
+metadata/
+
+models/
+
+preprocessed_data/
+
+cnn_lstm.ipynb
+
+convert_to_npz.ipynb
