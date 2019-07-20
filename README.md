@@ -1,25 +1,21 @@
-# Genre-it
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/hb20007/cpp-programs/blob/master/LICENSE.md)
 
-The mobile app that recognizes music genres using Deep Learning.
+# ![](resources/favicon.png) Genre-It
+The mobile app that recognizes music genres using Deep Learning
+
+![](resources/genre-it-text-and-logo.png)
 
 ## Getting Started
 
-...
-
 ### Prerequisites
-
-...
-
 
 ### Installing
 
-...
-
-## Built With
+## Built with
 
 * [Python](https://www.python.org/)
-* [Keras](https://keras.io/) - Deep Learning - Neural Networks
-* [Librosa](https://librosa.github.io/librosa/) - Sound processing
+* [Keras](https://keras.io/) — Deep Learning — Neural Networks
+* [Librosa](https://librosa.github.io/librosa/) — Sound processing
 
 ## Datasets used for training
 
@@ -35,6 +31,6 @@ The mobile app that recognizes music genres using Deep Learning.
 
 ## Acknowledgments
 
-* Kudos to [hackcyprus](http://comeback.hackcyprus.com/) for organizing the event
-* Kudos to anyone whose code and ideas were used in our project
+* Kudos to [Hack{Cyprus}](http://comeback.hackcyprus.com/) for organizing the event.
+* Kudos to anyone whose code and ideas were used in our project.
 * Kudos to all the open source community for allowing us achieve the impossible
