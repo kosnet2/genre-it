@@ -22,9 +22,9 @@ The mobile app that recognizes music genres using Deep Learning
 
 ## Authors
 
-* **Hanna Sababa** - Full Stack Developer - [hb20007](https://github.com/hb20007)
-* **Chris Peppos** - Full Stack Developer, Music Expert - [ChrisPeppos](https://github.com/ChrisPeppos)
-* **Karlen Avogian** - Deep Learning, Cyber Security - [kosnet2](https://github.com/kosnet2)
+* **Hanna Sababa** — Full Stack Developer — [hb20007](https://github.com/hb20007)
+* **Chris Peppos** — Full Stack Developer, Music Expert — [ChrisPeppos](https://github.com/ChrisPeppos)
+* **Karlen Avogian** — Deep Learning, Cyber Security — [kosnet2](https://github.com/kosnet2)
 
 
 ## Acknowledgments
