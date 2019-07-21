@@ -8,7 +8,23 @@
 
 ### How it works
 
-TBA
+#### Why CNN and LSTM? 
+* CNN makes sense since spectograms look like an image, each with their own distinct patterns. 
+* RNNs excel in understand sequential data by making the hidden state at time t dependent on hidden state at time t-1. 
+* The spectograms have a time component and RNNs can do a much better job of identifying the short term and longer term temporal features in the song.
+
+#### Parallel CNN-RNN Model
+* The model passes the input spectogram through both CNN and RNN layers in parallel, concatenating their output and then sending this through a dense layer with softmax activation to perform classification.
+* The **convolutional** block of the model consists of 2D convolution layer followed by a 2D Max pooling layer. There are 5 blocks of Convolution Max pooling layers. The final output is flattened and is a tensor of shape None , 256.
+* The **recurrent block** starts with 2D max pooling layer of pool size 4,2 to reduce the size of the spectogram before LSTM operation. This feature reduction was done primarily to speed up processing. The reduced image is sent to a bidirectional GRU with 64 units. The output from this layer is a
+tensor of shape None, 128.
+* The **outputs** from the convolutional and recurrent blocks are then concatenated resulting in a tensor of shape, None, 384. Finally we have a dense layer with softmax activation.
+
+#### Model accuracy
+* The accuracy of the model is around 51%
+* The reason for this is the small sample size of spectograms, which is a very small sample for building a deep learning neural network.
+* The FMA data set is challenging and has few classes which are easy to confuse among. The top leader board score on FMA-Genre Recongnition has a test F1 score of around 0.63
+* The accuracy is much better than guessing in random, which would be around 0.125 and could be improved if additional datasets and hardware was available.
 
 ### Genres
 
@@ -37,9 +53,12 @@ TBA
 * [Keras](https://keras.io/) — Deep Learning — Neural Networks
 * [Librosa](https://librosa.github.io/librosa/) — Sound processing
 
+## Tested on
+* [Linux Debian](https://www.debian.org/)
+* Running on Windows machines could yield issues, due to missing codecs*
+
 ## Datasets used for training
 
- * [Million Song Dataset](http://millionsongdataset.com)
  * [Free Music Archive](https://github.com/mdeff/fma)
 
 ## Authors
