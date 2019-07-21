@@ -1,7 +1,8 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/hb20007/cpp-programs/blob/master/LICENSE.md)
 
-# ![](resources/favicon.png) Genre-It
-The mobile app that recognizes music genres using Deep Learning
+# ![](resources/favicon.png) Genre-It  
+
+*The mobile app that recognizes music genres using Deep Learning*
 
 ## Description
 
@@ -11,14 +12,14 @@ TBA
 
 ### Genres
 
-1. Electronic
-2. Experimental
-3. Folk
-4. Hip-Hop
-5. Instrumental
-6. International
-7. Pop
-8. Rock
+1\. Electronic  
+2\. Experimental  
+3\. Folk  
+4\. Hip-Hop  
+5\. Instrumental  
+6\. International  
+7\. Pop  
+8\. Rock  
 
 ## Getting Started
 
