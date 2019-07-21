@@ -3,7 +3,14 @@
 # ![](resources/favicon.png) Genre-It
 The mobile app that recognizes music genres using Deep Learning
 
-Genres:
+## Description
+
+### How it works
+
+TBA
+
+### Genres
+
 1. Electronic
 2. Experimental
 3. Folk
