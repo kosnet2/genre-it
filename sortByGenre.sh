@@ -5,7 +5,7 @@ cd fma_small
 for dir in $(ls) ; do
    cd $dir
    for file in $(ls) ; do
-		genre=$(ffprobe $file 2>&1 | grep genre | cut -d ':' -f 2 | xargs echo -n)
+		genre=$(ffprobe $file 2>&1 | grep genre | cut -d ':' -f 2 | xargs echo -n) # Better read genre_top from metadata csv
 		new_dir='../../fma_small_sorted/'
 		new_dir+=$genre
 		mkdir -p $new_dir # Watch out for spaces!
