@@ -33,7 +33,6 @@ def create_spectogram(track_id):
     """
     
     filename = get_audio_path(AUDIO_DIR, track_id)
-    print(filename)
     y, sr = librosa.load(filename)
     spect = librosa.feature.melspectrogram(y=y, sr=sr,n_fft=2048, hop_length=1024)
     spect = librosa.power_to_db(spect, ref=np.max)
@@ -65,11 +64,25 @@ def create_array(df):
     y_arr = np.array(genres)
     return X_spect, y_arr
 
+def splitDataFrameIntoSmaller(df, chunkSize = 1600):
+    """
+    Splits dataframe to smaller chunks 
+    """
+    listOfDf = list()
+    numberChunks = len(df) // chunkSize + 1
+    for i in range(numberChunks):
+        listOfDf.append(df[i*chunkSize:(i+1)*chunkSize])
+    return listOfDf
+
+def shuffle_copies(a, b):
+    """
+    Create a random permutation of the given dataframes
+    """
+    assert len(a) == len(b)
+    p = np.random.permutation(len(a))
+    return a[p], b[p]
 
 tids = get_tids_from_directory(AUDIO_DIR)
-print(len(tids))
-
-
 filepath = 'metadata/tracks.csv'
 tracks = pd.read_csv(filepath, index_col=0, header=[0, 1])
 keep_cols = [('set', 'split'),
@@ -83,6 +96,8 @@ df_all['track_id'] = df_all.index
 dict_genres = {'Electronic':1, 'Experimental':2, 'Folk':3, 'Hip-Hop':4, 
                'Instrumental':5,'International':6, 'Pop' :7, 'Rock': 8  }
 
+
+# Prepare datasets
 df_train = df_all[df_all[('set', 'split')]=='training']
 df_valid = df_all[df_all[('set', 'split')]=='validation']
 df_test = df_all[df_all[('set', 'split')]=='test']
@@ -91,13 +106,6 @@ X_test, y_test = create_array(df_test)
 np.savez('test_arr', X_test, y_test)
 X_valid, y_valid = create_array(df_valid)
 np.savez('valid_arr', X_valid, y_valid)
-
-def splitDataFrameIntoSmaller(df, chunkSize = 1600): 
-    listOfDf = list()
-    numberChunks = len(df) // chunkSize + 1
-    for i in range(numberChunks):
-        listOfDf.append(df[i*chunkSize:(i+1)*chunkSize])
-    return listOfDf
 
 listDf = splitDataFrameIntoSmaller(df_train)
 df1_train = listDf[0]
@@ -134,7 +142,6 @@ npzfile = np.load('valid_arr.npz')
 X_valid = npzfile['arr_0']
 y_valid = npzfile['arr_1']
 
-""" Concatenate train data """
 X_train = np.concatenate((X_train1, X_train2, X_train3, X_train4), axis = 0)
 y_train = np.concatenate((y_train1, y_train2, y_train3, y_train4), axis = 0)
 
@@ -145,13 +152,9 @@ X_train_log = np.log(X_train_raw)
 X_valid_raw = librosa.core.db_to_power(X_valid, ref=1.0)
 X_valid_log = np.log(X_valid_raw)
 
-def unison_shuffled_copies(a, b):
-    assert len(a) == len(b)
-    p = np.random.permutation(len(a))
-    return a[p], b[p]
+X_train, y_train = shuffle_copies(X_train_log, y_train)
+X_valid, y_valid = shuffle_copies(X_valid_log, y_valid)
 
-X_train, y_train = unison_shuffled_copies(X_train_log, y_train)
-X_valid, y_valid = unison_shuffled_copies(X_valid_log, y_valid)
-
-np.savez('shuffled_train', X_train, y_train)
-np.savez('shuffled_valid', X_valid, y_valid)
+# Save the preprocessed datasets
+np.savez('preprocessed_data/shuffled_train', X_train, y_train)
+np.savez('preprocessed_data/shuffled_valid', X_valid, y_valid)
